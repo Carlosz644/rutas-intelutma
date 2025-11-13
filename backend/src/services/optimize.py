@@ -1,5 +1,5 @@
 from backend.src.services.utils import post
-from polyline.codec import decode  # ✅ Agregado para decodificar geometría
+from polyline import decode  # ✅ Agregado para decodificar geometría
 
 def optimize_route(locations: list):
     url = "https://routes.googleapis.com/directions/v2:computeRoutes"
