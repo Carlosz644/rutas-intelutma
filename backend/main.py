@@ -8,6 +8,26 @@ from backend.src.routes.directions_route import router as directions_router
 from backend.src.routes.matrix_route import router as matrix_router
 from backend.src.routes.optimize_route import router as optimize_router
 from backend.src.routes.users_route import router as users_router
+from backend.src.routes.clientes_route import router as clientes_router
+from backend.src.routes.conductores_route import router as conductores_router
+from backend.src.routes.vehiculos_route import router as vehiculos_router
+from backend.src.routes.rutas_sql_route import router as rutas_sql_router
+from backend.src.routes.entregas_route import router as entregas_router
+from backend.src.routes.paquetes_route import router as paquetes_router
+from backend.src.routes.seguimiento_route import router as seguimiento_router
+from backend.src.routes.login_route import router as login_router
+from backend.src.routes.system_route import router as system_router
+
+
+
+
+
+
+
+
+
+
+
 
 # --- 2. Importaciones de Base de Datos y Modelos (LÓGICA SQL/DB VERIFICADA) ---
 # Importa la Sesión y el Engine desde .database
@@ -38,3 +58,21 @@ app.include_router(directions_router)
 app.include_router(matrix_router)
 app.include_router(optimize_router)
 app.include_router(users_router)
+app.include_router(clientes_router)
+app.include_router(conductores_router)
+app.include_router(vehiculos_router)
+app.include_router(rutas_sql_router)
+app.include_router(entregas_router)
+app.include_router(paquetes_router)
+app.include_router(seguimiento_router)
+app.include_router(login_router)
+app.include_router(system_router)
+
+
+
+
+
+
+
+
+
