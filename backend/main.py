@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
+from fastapi.staticfiles import StaticFiles
+
 
 # --- 1. Importaciones de Rutas (Tus rutas de negocio) ---
 from backend.src.routes.rutas_route import router as rutas_router
@@ -17,6 +19,10 @@ from backend.src.routes.paquetes_route import router as paquetes_router
 from backend.src.routes.seguimiento_route import router as seguimiento_router
 from backend.src.routes.login_route import router as login_router
 from backend.src.routes.system_route import router as system_router
+from backend.src.routes.evidencias_route import router as evidencias_router
+
+
+
 
 
 
@@ -67,6 +73,12 @@ app.include_router(paquetes_router)
 app.include_router(seguimiento_router)
 app.include_router(login_router)
 app.include_router(system_router)
+app.include_router(evidencias_router)
+app.mount("/uploads", StaticFiles(directory="backend/uploads"), name="uploads")
+
+
+
+
 
 
 

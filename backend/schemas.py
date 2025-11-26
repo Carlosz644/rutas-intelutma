@@ -183,3 +183,15 @@ class CambiarPassword(BaseModel):
     password_nueva: str
     confirmar_nueva: str
 
+class EvidenciaBase(BaseModel):
+    id_entrega: int
+    url_foto: str
+    tipo: str = "entrega"
+
+class Evidencia(EvidenciaBase):
+    id_evidencia: int
+    fecha_subida: datetime
+
+    class Config:
+        orm_mode = True
+

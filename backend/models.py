@@ -158,3 +158,15 @@ class Usuario(Base):
     rol = Column(Enum(RolUsuario), default=RolUsuario.repartidor, nullable=False)
     activo = Column(Integer, default=1, nullable=False)
     creado_en = Column(DateTime, default=func.now())
+
+class EvidenciaEntrega(Base):
+    __tablename__ = "evidencias_entrega"
+
+    id_evidencia = Column(Integer, primary_key=True, index=True)
+    id_entrega = Column(Integer, ForeignKey("entregas.id_entrega"))
+    url_foto = Column(String(500))
+    tipo = Column(Enum("entrega", "documento", "cliente", "otro", name="tipo_evidencia"))
+    fecha_subida = Column(DateTime, default=datetime.utcnow)
+
+    entrega = relationship("Entrega")
+

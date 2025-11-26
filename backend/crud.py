@@ -529,3 +529,21 @@ def cambiar_password(db: Session, id_usuario: int, password_hash: str):
     db.commit()
     db.refresh(usuario)
     return usuario
+
+from backend.models import Evidencia
+
+def create_evidencia(db: Session, evidencia: schemas.EvidenciaBase):
+    nueva = Evidencia(
+        id_entrega=evidencia.id_entrega,
+        url_foto=evidencia.url_foto,
+        tipo=evidencia.tipo
+    )
+    db.add(nueva)
+    db.commit()
+    db.refresh(nueva)
+    return nueva
+
+
+def get_evidencias_por_entrega(db: Session, id_entrega: int):
+    return db.query(Evidencia).filter(Evidencia.id_entrega == id_entrega).all()
+
